@@ -4,30 +4,10 @@
     </div>
 </div>
 
-<!--RECIPIE ITEM CODE-->
 <ul class="list-group my-2">
-  <li class="list-group-item" *ngFor="let recipie of recipies">
-    <a class="text-decoration-none text-reset" style=" cursor : pointer">
-        <div class="d-flex justify-content-between align-items-center">
-      
-      <!-- Left side: Title + Description -->
-      <div class="me-3">
-        <h5 class="mb-1">{{recipie.name}}</h5>
-        <p class="mb-0 text-muted">{{recipie.description}}</p>
-      </div>
-
-      <!-- Right side: Image -->
-      <img 
-        [src]= 'recipie.imagePath'
-        [alt]= 'recipie.name' 
-        class="img-fluid"
-        style="width: 120px; height: 90px; object-fit: cover; border-radius: 8px;"
-      />
-    </div>
-    </a>   
-  </li>
+  <app-recipie-item [RecipieItem]="recipie" *ngFor="let recipie of recipies"  
+  (selectedRecipie)="onSelectionOfRecipie($event)"></app-recipie-item>
 </ul>
 
 
 
-<app-recipie-item></app-recipie-item>

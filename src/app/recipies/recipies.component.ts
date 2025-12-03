@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Recipie } from './recipies.model';
 
 @Component({
   selector: 'app-recipies',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipies.component.scss']
 })
 export class RecipiesComponent {
-
+  currentSelectedRecipie!: Recipie;
+  onSelectingRecipie(recipie: Recipie) {
+    this.currentSelectedRecipie = recipie;
+  }
 }

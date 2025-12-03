@@ -7,5 +7,11 @@ import { Ingredient } from '../shared/ingredient.model';
     styleUrls: ['./shopping-list.component.scss']
 })
 export class ShoppingListComponent {
-    ingredients: Ingredient[] = [new Ingredient('pepper', 20), new Ingredient('salt', 1)]
+    ingredients: Ingredient[] = [new Ingredient('pepper', 20), new Ingredient('salt', 1)];
+
+    onAdditionOfIngredient(ingredient: Ingredient) {
+        if (ingredient.name && ingredient.amount) {
+            this.ingredients.push(ingredient);
+        }
+    }
 }

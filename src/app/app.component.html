@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (currentNavSection)="oncurrentNavChange($event)"></app-header>
 <div class="container">
   <div class="row">
-    <app-recipies></app-recipies>
+    <app-recipies *ngIf="selectedNav === 'Recipies'"></app-recipies>
   </div>
   <div class="row">
-    <app-shopping-list></app-shopping-list>
+    <app-shopping-list *ngIf="selectedNav === 'ShoppingList'"></app-shopping-list>
   </div>
 </div>
