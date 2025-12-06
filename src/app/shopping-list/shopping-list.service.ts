@@ -13,6 +13,14 @@ export class ShoppingListService {
         this.changedIngredients.next(this.ingredients);
     }
 
+    addIngredients(ingredients: Ingredient[]) {
+        for (let ingredient of ingredients) {
+            this.ingredients.push(ingredient);
+        }
+        this.changedIngredients.next(this.ingredients);
+        console.log(this.ingredients);
+    }
+
     getIngredients() {
         return this.ingredients.slice();
     }
