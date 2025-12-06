@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col-md-5">
-            <app-recipie-list (SelectedRecipie)="onSelectingRecipie($event)"></app-recipie-list>
+            <app-recipie-list></app-recipie-list>
         </div>
         <div class="col-md-7 ">
-            <app-recipie-details [selectedRecipie] ='currentSelectedRecipie' *ngIf="currentSelectedRecipie;else noRecipie "></app-recipie-details>
+            <app-recipie-details [selectedRecipie]='currentSelectedRecipie' *ngIf="currentSelectedRecipie;else noRecipie "></app-recipie-details>
             <ng-template #noRecipie><h2>please select a Recipie to view its details</h2></ng-template>
         </div>
     </div>

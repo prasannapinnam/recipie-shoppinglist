@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Recipie } from '../recipies.model';
+import { RecipiesService } from '../recipies.service';
 
 @Component({
   selector: 'app-recipie-details',
@@ -7,5 +8,10 @@ import { Recipie } from '../recipies.model';
   styleUrls: ['./recipie-details.component.scss']
 })
 export class RecipieDetailsComponent {
-  @Input('selectedRecipie') selectedRecipie!: Recipie;
+  @Input() selectedRecipie!: Recipie;
+
+  constructor() {
+
+  }
+
 }
