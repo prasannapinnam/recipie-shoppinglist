@@ -6,9 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  selectedNav: string = 'Recipies'
-
-  oncurrentNavChange(item: string) {
-    this.selectedNav = item
-  }
 }

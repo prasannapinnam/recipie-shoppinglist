@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Recipie } from "./recipies.model";
-import { Subject } from "rxjs";
 import { Ingredient } from "../shared/ingredient.model";
 
 @Injectable({
@@ -16,7 +15,6 @@ export class RecipiesService {
         ];
 
 
-    selectedRecipie = new Subject<Recipie>();
     getRecipies() {
         return this.recipies.slice()
     }

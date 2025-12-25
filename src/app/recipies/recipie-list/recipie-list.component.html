@@ -1,11 +1,13 @@
 <div class="row">
     <div class="col-md-12">
-        <button class="btn btn-success">add recipie</button>
+        <button class="btn btn-success" [routerLink]="['/recipies','new']">add recipie</button>
     </div>
 </div>
 
 <ul class="list-group my-2">
-  <app-recipie-item [RecipieItem]="recipie" *ngFor="let recipie of recipies" ></app-recipie-item>
+  <li class="list-group-item" *ngFor="let recipie of recipies,let i = index" [routerLink]="[i]" [routerLinkActive]="'highlight-item'">
+      <app-recipie-item [RecipieItem]="recipie" ></app-recipie-item>
+  </li>    
 </ul>
 
 

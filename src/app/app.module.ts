@@ -11,6 +11,11 @@ import { RecipieDetailsComponent } from './recipies/recipie-details/recipie-deta
 import { RecipieItemComponent } from './recipies/recipie-list/recipie-item/recipie-item.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropDownDirective } from './shared/dropdown.directive';
+import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
+import { NoRecipieComponent } from './recipies/no-recipie/no-recipie.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,11 +27,13 @@ import { DropDownDirective } from './shared/dropdown.directive';
     RecipieDetailsComponent,
     RecipieItemComponent,
     ShoppingEditComponent,
-    DropDownDirective
+    DropDownDirective,
+    RecipieEditComponent,
+    NoRecipieComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

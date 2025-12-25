@@ -6,10 +6,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  navSections = ['Recipies', 'ShoppingList'];
-  @Output('currentNavSection') currentNavSection = new EventEmitter<string>();
+  navSections = ['recipies', 'shopping-list'];
 
-  setNavItem(item: string) {
-    this.currentNavSection.emit(item);
-  }
 }

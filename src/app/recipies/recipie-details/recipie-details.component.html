@@ -14,9 +14,9 @@
                 Manage
             </button>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" (click)="addIngredientsToShoppingList()">Add to shopping list</a></li>
-                <li><a class="dropdown-item" href="#">Edit recipe</a></li>
-                <li><a class="dropdown-item" href="#">Delete recipe</a></li>
+                <li><a class="dropdown-item" (click)="addIngredientsToShoppingList()">Add to shopping list</a></li>
+                <li><a class="dropdown-item" [routerLink]="['/recipies',recipieId,'edit']">Edit recipe</a></li>
+                <li><a class="dropdown-item">Delete recipe</a></li>
             </ul>
     </div>
 </div>
