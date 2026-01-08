@@ -13,8 +13,8 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { DropDownDirective } from './shared/dropdown.directive';
 import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
 import { NoRecipieComponent } from './recipies/no-recipie/no-recipie.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,6 +34,9 @@ import { NoRecipieComponent } from './recipies/no-recipie/no-recipie.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

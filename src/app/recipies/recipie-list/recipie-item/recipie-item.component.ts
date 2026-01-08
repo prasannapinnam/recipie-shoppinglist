@@ -12,6 +12,5 @@ export class RecipieItemComponent {
 
   constructor(private recipieService: RecipiesService) { }
   onClickOfRecipie() {
-    this.recipieService.selectedRecipie.next(this.RecipieItem);
   }
 }

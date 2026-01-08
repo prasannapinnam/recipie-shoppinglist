@@ -5,7 +5,7 @@
             <hr>
                 <!--shopping list-->
                 <ul class="list-group my-2">
-                    <li class="list-group-item" *ngFor="let ingredient of ingredients" >
+                    <li class="list-group-item" *ngFor="let ingredient of ingredients,let i = index" (click)="editIngredient(i)">
                             <p class="mb-0">{{ingredient.name}} ({{ingredient.amount}})</p> 
                     </li>
                 </ul>

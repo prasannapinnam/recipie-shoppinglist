@@ -16,6 +16,9 @@ export class RecipieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipies = this.recipiesService.getRecipies();
+    this.recipiesService.recipiesUpdated.subscribe((recipies: Recipie[]) => {
+      this.recipies = recipies;
+    })
   }
   addingNewRecipie() {
     this.router.navigate(['/recipies', 'new'])

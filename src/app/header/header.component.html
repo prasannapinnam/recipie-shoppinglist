@@ -1,33 +1,48 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-
     <!-- Header / Brand -->
     <a class="navbar-brand">My App</a>
 
     <!-- Mobile Toggle Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Navbar Links + Right Dropdown -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
       <!-- Left-side links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item" *ngFor="let item of navSections">
-          <a class="nav-link"  [routerLink]="['/' + item]" [routerLinkActive]="'link-decor'" >{{item}}</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/' + item]"
+            [routerLinkActive]="'link-decor'"
+            >{{ item }}</a
+          >
         </li>
       </ul>
 
       <!-- Right-aligned dropdown -->
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown" appDropDown>
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" >
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button">
             Manage
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item">save data</a></li>
-            <li><a class="dropdown-item">fetch data</a></li>
+            <li>
+              <a class="dropdown-item" (click)="onSaveData()">save data</a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="onFetchData()">fetch data</a>
+            </li>
           </ul>
         </li>
       </ul>

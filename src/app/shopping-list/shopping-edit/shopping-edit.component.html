@@ -1,22 +1,22 @@
-  <form>
+  <form (ngSubmit)="onSubmittingRecipie(f)" #f="ngForm">
     <div class="row g-3">
       <!-- Name -->
       <div class="col-md-6">
         <label class="form-label" for="name">Name</label>
-        <input type="text" class="form-control" id="name" #ingredientName>
+        <input type="text" class="form-control" id="name" name="name" ngModel required>
       </div>
 
       <!-- Amount -->
       <div class="col-md-3">
         <label class="form-label" for="amount">Amount</label>
-        <input type="number" class="form-control" id="amount" #ingredientAmount>
+        <input type="number" class="form-control" id="amount" name="amount" ngModel required min="1">
       </div>
     </div>
 
     <!-- Buttons -->
     <div class="d-flex gap-3 mt-3">
-      <button type="button" class="btn btn-success" (click)="onAddingRecipie()">add</button>
-      <button type="button" class="btn btn-danger">delete</button>
-      <button type="button" class="btn btn-primary">clear</button>
+      <button type="button" class="btn btn-success" type="submit" [disabled]="!f.valid">{{editMode ? "Update":"add"}}</button>
+      <button type="button" class="btn btn-danger" (click)="deleteEntry()" *ngIf="editMode">delete</button>
+      <button type="button" class="btn btn-primary" (click)="clearForm()">clear</button>
     </div>
   </form>

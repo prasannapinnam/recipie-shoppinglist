@@ -5,6 +5,7 @@ import { RecipiesComponent } from './recipies/recipies.component';
 import { RecipieDetailsComponent } from './recipies/recipie-details/recipie-details.component';
 import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
 import { NoRecipieComponent } from './recipies/no-recipie/no-recipie.component';
+import { RecipiesResolverService } from './recipies/recipies-resolver.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipies', pathMatch: 'full' },
@@ -13,8 +14,8 @@ const appRoutes: Routes = [
     path: 'recipies', component: RecipiesComponent, children: [
       { path: '', component: NoRecipieComponent },
       { path: 'new', component: RecipieEditComponent },
-      { path: ':id', component: RecipieDetailsComponent },
-      { path: ':id/edit', component: RecipieEditComponent },
+      { path: ':id', component: RecipieDetailsComponent, resolve: [RecipiesResolverService] },
+      { path: ':id/edit', component: RecipieEditComponent, resolve: [RecipiesResolverService] },
     ]
   }
 ]
