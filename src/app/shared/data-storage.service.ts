@@ -1,12 +1,14 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { RecipiesService } from "../recipies/recipies.service";
 import { Recipie } from "../recipies/recipies.model";
-import { map, tap } from "rxjs";
+import { EMPTY, exhaustMap, map, take, tap } from "rxjs";
+import { AuthService } from "../auth/auth.service";
+import { User } from "../auth/user.model";
 
 @Injectable({ providedIn: "root" })
 export class DataStorageService {
-    constructor(private http: HttpClient, private recipieService: RecipiesService) {
+    constructor(private http: HttpClient, private recipieService: RecipiesService, private authService: AuthService) {
     }
 
     storeRecipies() {
@@ -16,13 +18,19 @@ export class DataStorageService {
     }
 
     fetchRecipies() {
-        return this.http.get<Recipie[]>('https://recipie-shoppinglist-default-rtdb.asia-southeast1.firebasedatabase.app/recipies.json').
-            pipe(
-                map((recipies) => {
-                    return recipies.map(recipie => ({ ...recipie, ingredients: recipie.ingredients ? recipie.ingredients : [] }))
-                }),
-                tap((recipies: Recipie[]) => {
-                    this.recipieService.setRecipies(recipies);
-                }))
+        return this.http.get<Recipie[]>(
+            'https://recipie-shoppinglist-default-rtdb.asia-southeast1.firebasedatabase.app/recipies.json'
+
+        ).pipe(map((recipies) => {
+            if (!recipies) {
+                return [];
+            }
+
+            return recipies.map(recipie => ({ ...recipie, ingredients: recipie.ingredients ? recipie.ingredients : [] }))
+        }),
+            tap((recipies: Recipie[]) => {
+                this.recipieService.setRecipies(recipies);
+            }))
+
     }
 }

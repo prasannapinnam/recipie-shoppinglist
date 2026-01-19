@@ -14,7 +14,10 @@ import { DropDownDirective } from './shared/dropdown.directive';
 import { RecipieEditComponent } from './recipies/recipie-edit/recipie-edit.component';
 import { NoRecipieComponent } from './recipies/no-recipie/no-recipie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     ShoppingEditComponent,
     DropDownDirective,
     RecipieEditComponent,
-    NoRecipieComponent
+    NoRecipieComponent,
+    AuthComponent,
+    LoadingSpinner
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
